@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СпичКи — студия развития речи и творчества в Омске</title>
+<meta name="description" content="Студия развития речи и творчества «СпичКи» в Омске: логопед, дефектолог, психолог, раннее развитие, подготовка к школе, английский язык, чтение и письмо, репетитор. ул. Звездова, 103. +7 (923) 675-72-65">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 230"><circle cx="110" cy="140" r="58" fill="none" stroke="%23C2D6D2" stroke-width="6"/><path d="M110 66 C 103 42 72 38 64 58 C 56 78 78 100 110 120 C 142 100 164 78 156 58 C 148 38 117 42 110 66 Z" fill="none" stroke="%23C6555C" stroke-width="8"/><line x1="90" y1="192" x2="117" y2="96" stroke="%23F0D6C3" stroke-width="12" stroke-linecap="round"/><line x1="130" y1="192" x2="103" y2="96" stroke="%23F0D6C3" stroke-width="12" stroke-linecap="round"/><ellipse cx="119" cy="86" rx="9" ry="15" fill="%23C6555C" transform="rotate(-14 119 86)"/><ellipse cx="101" cy="86" rx="9" ry="15" fill="%23C6555C" transform="rotate(14 101 86)"/></svg>'>
+<style>
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/cyrillic-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/cyrillic-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/cyrillic-800-normal.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/cyrillic-900-normal.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Nunito';src:url('https://cdn.jsdelivr.net/fontsource/fonts/nunito@latest/latin-900-normal.woff2') format('woff2');font-weight:900;font-display:swap}
+:root{
+  --cream:#F7F6E9; --cream2:#FCFBF2; --red:#C6555C; --red-d:#AE474E; --peach:#E4A87C;
+  --mint:#A7C4C0; --green:#B4CF9E; --pink:#F0B9C6; --ink:#57493F; --muted:#8B7B6C; --white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:'Nunito',Segoe UI,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:92px 0;scroll-margin-top:100px}
+h1,h2,h3{line-height:1.15}
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(247,246,233,.92);backdrop-filter:blur(10px);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 6px 24px rgba(87,73,63,.12)}
+.h-inner{display:flex;align-items:center;gap:26px;padding:12px 0;position:relative}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:46px;height:48px}
+.brand-name{font-size:1.7rem;font-weight:900;color:var(--red);letter-spacing:.5px}
+.brand-name b{color:var(--peach);font-weight:900}
+nav{margin-left:auto;position:relative;z-index:101}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{text-decoration:none;font-weight:700;color:var(--ink);font-size:.98rem;position:relative;padding:6px 0;cursor:pointer}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:3px;border-radius:3px;background:var(--peach);transition:width .3s}
+nav a:hover::after{width:100%}
+.h-phone{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:10px 20px;border-radius:999px;font-size:.92rem;transition:.3s;white-space:nowrap}
+.h-phone:hover{background:var(--peach);transform:translateY(-2px)}
+.burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;width:44px;height:40px;position:relative;z-index:102}
+.burger span{position:absolute;left:8px;right:8px;height:4px;border-radius:4px;background:var(--red);transition:.3s}
+.burger span:nth-child(1){top:10px}.burger span:nth-child(2){top:18px}.burger span:nth-child(3){top:26px}
+.burger.open span:nth-child(1){top:18px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:18px;transform:rotate(-45deg)}
+/* ---------- hero ---------- */
+.hero{padding:170px 0 70px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%;filter:blur(10px);z-index:0}
+.hero::before{width:520px;height:520px;right:-160px;top:-120px;background:radial-gradient(circle,rgba(228,168,124,.28),transparent 65%)}
+.hero::after{width:460px;height:460px;left:-180px;bottom:-160px;background:radial-gradient(circle,rgba(167,196,192,.35),transparent 65%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-block;background:var(--mint);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;font-size:.78rem;padding:8px 18px;border-radius:999px;margin-bottom:18px}
+.logo-row{display:flex;align-items:center;gap:22px}
+.logo-row>svg{width:120px;height:126px;flex:none}
+.wordmark{font-size:clamp(3.4rem,8vw,6rem);font-weight:900;color:var(--red);letter-spacing:2px}
+.wordmark b{color:var(--peach);font-weight:900}
+.hero-pill{display:inline-block;background:var(--red);color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:clamp(.8rem,1.6vw,1.05rem);padding:12px 30px;border-radius:16px;margin:22px 0 20px;box-shadow:0 8px 22px rgba(198,85,92,.28)}
+.hero p.lead{font-size:1.12rem;max-width:520px;color:var(--muted);margin-bottom:30px}
+.hero p.lead b{color:var(--red)}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.02rem;padding:15px 32px;border-radius:999px;border:0;cursor:pointer;transition:.3s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(198,85,92,.3)}
+.btn-red:hover{background:var(--red-d);transform:translateY(-3px)}
+.btn-ghost{background:transparent;color:var(--red);border:2.5px solid var(--peach)}
+.btn-ghost:hover{background:var(--peach);color:#fff;transform:translateY(-3px)}
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:40px}
+.stat b{display:block;font-size:1.7rem;font-weight:900;color:var(--red)}
+.stat span{font-size:.86rem;color:var(--muted);font-weight:700}
+.hero-art{position:relative}
+.art-blob{position:absolute;inset:6% 4% 10% 4%;background:radial-gradient(circle at 40% 35%,rgba(240,185,198,.4),rgba(167,196,192,.35) 55%,transparent 75%);border-radius:48% 52% 55% 45%/50% 45% 55% 50%;z-index:0}
+.hero-art .girl{position:relative;z-index:1;width:min(100%,430px);margin:0 auto}
+.hero-art .snail{position:absolute;z-index:2;width:150px;left:-14px;bottom:-6px;animation:crawl 9s ease-in-out infinite alternate}
+@keyframes crawl{from{transform:translateX(0)}to{transform:translateX(46px)}}
+.bf{position:absolute;z-index:3;width:52px;height:52px;animation:fly 6s ease-in-out infinite;pointer-events:none}
+.bf-1{color:var(--red);top:2%;right:6%}
+.bf-2{color:#F2C94C;top:38%;right:-2%;animation-delay:1.4s;width:44px;height:44px}
+.bf-3{color:var(--mint);top:12%;left:2%;animation-delay:2.6s;width:40px;height:40px}
+@keyframes fly{0%,100%{transform:translate(0,0) rotate(-6deg)}50%{transform:translate(-14px,-20px) rotate(8deg)}}
+/* ---------- marquee ---------- */
+.marquee{background:var(--red);padding:15px 0;overflow:hidden;position:relative}
+.mq-track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.mq-track span{color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.95rem;white-space:nowrap;padding:0 8px}
+.mq-track i{color:var(--peach);font-style:normal;padding:0 10px;font-weight:900}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* ---------- headings ---------- */
+.h-head{text-align:center;margin-bottom:52px}
+.h-head .over{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--peach);padding:7px 18px;border-radius:999px;margin-bottom:14px}
+.h-head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:900;color:var(--red)}
+.h-head p{color:var(--muted);max-width:640px;margin:12px auto 0}
+/* ---------- services ---------- */
+#services{background:var(--cream2)}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.srv-card{background:#fff;border-radius:24px;padding:24px 20px;box-shadow:0 8px 26px rgba(87,73,63,.08);transition:.35s;position:relative;overflow:hidden}
+.srv-card:hover{transform:translateY(-9px);box-shadow:0 16px 36px rgba(87,73,63,.14)}
+.pill{display:block;color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:.95rem;padding:11px 20px;border-radius:999px;text-align:center;margin-bottom:16px}
+.c-peach{background:var(--peach)}.c-red{background:var(--red)}.c-mint{background:var(--mint)}.c-green{background:var(--green)}
+.srv-card p{font-size:.92rem;color:var(--muted)}
+.srv-card .num{position:absolute;right:14px;bottom:6px;font-size:3.4rem;font-weight:900;color:var(--cream);z-index:0}
+/* ---------- formats ---------- */
+.formats-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.boy-wrap{position:relative}
+.boy-wrap .boy{width:min(100%,400px);margin:0 auto}
+.fmt-list{display:flex;flex-direction:column;gap:22px}
+.fmt-row{transition:.3s}
+.fmt-row:hover{transform:translateX(8px)}
+.fmt-row .pill{display:inline-block;margin:0 0 8px;font-size:1.05rem;padding:13px 30px;text-align:left;box-shadow:0 8px 20px rgba(87,73,63,.12)}
+.fmt-row:nth-child(2){align-self:flex-end;text-align:right}
+.fmt-row:nth-child(3){align-self:flex-start}
+.fmt-row:nth-child(4){align-self:flex-end;text-align:right}
+.fmt-row p{color:var(--muted);font-size:.98rem;max-width:440px}
+.fmt-row:nth-child(2) p,.fmt-row:nth-child(4) p{margin-left:auto}
+/* ---------- prices ---------- */
+#prices{background:var(--cream2)}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.price-card{background:#fff;border-radius:22px;padding:26px 22px;box-shadow:0 8px 26px rgba(87,73,63,.08);display:flex;flex-direction:column;gap:10px;transition:.35s;border-top:6px solid var(--peach)}
+.price-card:nth-child(2n){border-top-color:var(--red)}
+.price-card:nth-child(3n){border-top-color:var(--mint)}
+.price-card:nth-child(4n){border-top-color:var(--green)}
+.price-card:hover{transform:translateY(-8px) rotate(-.5deg)}
+.price-card h3{font-size:1.06rem;font-weight:800;color:var(--ink)}
+.price-card .tag{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.price-card .sum{margin-top:auto;font-size:1.6rem;font-weight:900;color:var(--red)}
+.price-card .sum small{font-size:.9rem;color:var(--muted);font-weight:700}
+.price-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:30px}
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.about-art .craft{width:min(100%,440px);margin:0 auto;background:#fff;border-radius:28px;padding:26px;box-shadow:0 14px 40px rgba(87,73,63,.12)}
+.quote{background:#fff;border-left:6px solid var(--peach);border-radius:18px;padding:22px 26px;margin:26px 0;font-style:italic;color:var(--muted);box-shadow:0 8px 22px rgba(87,73,63,.08)}
+.quote b{color:var(--red);font-style:normal}
+.checks{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:700}
+.checks li::before{content:'✓';flex:none;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* ---------- reviews ---------- */
+#reviews{background:var(--cream2)}
+.rev-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:stretch}
+.rating-card{background:var(--red);color:#fff;border-radius:28px;padding:40px 34px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:12px;box-shadow:0 16px 40px rgba(198,85,92,.3)}
+.rating-card .score{font-size:4.4rem;font-weight:900;line-height:1}
+.stars{display:flex;gap:6px;justify-content:center}
+.stars svg{width:30px;height:30px}
+.rating-card p{font-weight:700;opacity:.92}
+.rating-card .btn{margin:14px auto 0;background:#fff;color:var(--red)}
+.rating-card .btn:hover{background:var(--peach);color:#fff}
+.val-cards{display:grid;gap:20px}
+.val-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 8px 26px rgba(87,73,63,.08);display:flex;gap:18px;align-items:flex-start;transition:.3s}
+.val-card:hover{transform:translateX(8px)}
+.val-ico{flex:none;width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.val-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
+.val-card p{color:var(--muted);font-size:.95rem}
+/* ---------- contacts ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+.c-list{display:flex;flex-direction:column;gap:18px}
+.c-item{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 24px rgba(87,73,63,.08);text-decoration:none;transition:.3s}
+a.c-item:hover{transform:translateY(-4px)}
+.c-ico{flex:none;width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.c-ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.c-item b{display:block;font-size:1.02rem}
+.c-item span{color:var(--muted);font-size:.92rem}
+.form-card{background:#fff;border-radius:28px;padding:38px 34px;box-shadow:0 16px 44px rgba(87,73,63,.12)}
+.form-card h3{font-size:1.5rem;font-weight:900;color:var(--red);margin-bottom:8px}
+.form-card>p{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+.f-group{margin-bottom:18px}
+.f-group label{display:block;font-weight:800;font-size:.88rem;margin-bottom:7px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:13px 16px;border:2px solid #EDE6D6;border-radius:14px;font-family:inherit;font-size:1rem;background:var(--cream2);color:var(--ink);transition:.3s}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--peach);background:#fff}
+.f-group textarea{resize:vertical;min-height:88px}
+.form-ok{display:none;background:var(--green);color:#fff;font-weight:800;border-radius:16px;padding:16px 20px;margin-top:16px;text-align:center;animation:pop .45s}
+.form-ok.show{display:block}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+/* ---------- footer ---------- */
+footer{background:var(--red);color:#FDF6EC;padding:56px 0 30px;position:relative;overflow:hidden}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;align-items:start}
+.f-brand{display:flex;align-items:center;gap:14px}
+.f-brand svg{width:56px;height:58px}
+.f-brand .brand-name{color:#fff}
+.f-brand .brand-name b{color:var(--peach)}
+footer p{opacity:.9;font-size:.94rem;margin-top:14px;max-width:340px}
+footer h4{font-weight:900;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;margin-bottom:16px;color:var(--peach)}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+footer ul a{text-decoration:none;opacity:.92;font-size:.95rem;transition:.25s}
+footer ul a:hover{opacity:1;color:var(--peach);padding-left:6px}
+.f-bottom{border-top:1px solid rgba(255,255,255,.25);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem;opacity:.85}
+.f-snail{position:absolute;right:34px;bottom:16px;width:110px;opacity:.9}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+/* ---------- responsive ---------- */
+@media(max-width:1000px){
+  .srv-grid,.price-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.formats-grid,.about-grid,.rev-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:150px}
+  .fmt-row:nth-child(2),.fmt-row:nth-child(4){align-self:stretch;text-align:left}
+  .fmt-row:nth-child(2) p,.fmt-row:nth-child(4) p{margin-left:0}
+}
+@media(max-width:860px){
+  nav{position:fixed;top:70px;left:0;right:0;background:var(--cream2);box-shadow:0 20px 40px rgba(87,73,63,.15);transform:translateY(-130%);visibility:hidden;transition:transform .4s ease,visibility 0s .4s;padding:20px 0;z-index:101;margin-left:0}
+  nav.open{transform:none;visibility:visible;transition:transform .4s ease}
+  nav ul{flex-direction:column;gap:6px;padding:0 26px}
+  nav a{display:block;padding:10px 0;font-size:1.05rem}
+  nav a::after{display:none}
+  .burger{display:block}
+  .h-phone{display:none}
+}
+@media(max-width:560px){
+  .srv-grid,.price-grid{grid-template-columns:1fr}
+  .logo-row{flex-direction:column;gap:8px;text-align:center}
+  section{padding:70px 0}
+  .form-card{padding:30px 22px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="logo-shape" viewBox="0 0 220 230">
+  <circle cx="110" cy="140" r="58" fill="none" stroke="#C2D6D2" stroke-width="5"/>
+  <g stroke="#E4A87C" stroke-width="7" stroke-linecap="round">
+    <line x1="110" y1="14" x2="110" y2="28"/><line x1="76" y1="22" x2="82" y2="34"/>
+    <line x1="144" y1="22" x2="138" y2="34"/><line x1="50" y1="44" x2="60" y2="52"/>
+    <line x1="170" y1="44" x2="160" y2="52"/>
+  </g>
+  <path d="M110 66 C 103 42 72 38 64 58 C 56 78 78 100 110 120 C 142 100 164 78 156 58 C 148 38 117 42 110 66 Z" fill="none" stroke="#C6555C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="90" y1="192" x2="117" y2="96" stroke="#F0D6C3" stroke-width="10" stroke-linecap="round"/>
+  <line x1="130" y1="192" x2="103" y2="96" stroke="#F0D6C3" stroke-width="10" stroke-linecap="round"/>
+  <ellipse cx="119" cy="86" rx="9" ry="15" fill="#C6555C" transform="rotate(-14 119 86)"/>
+  <ellipse cx="101" cy="86" rx="9" ry="15" fill="#C6555C" transform="rotate(14 101 86)"/>
+</symbol>
+<symbol id="bf-shape" viewBox="0 0 64 64">
+  <path d="M32 34 C 20 15 5 19 8 31 C 10 41 21 44 32 38 Z" fill="currentColor"/>
+  <path d="M32 34 C 44 15 59 19 56 31 C 54 41 43 44 32 38 Z" fill="currentColor"/>
+  <path d="M32 40 C 24 49 15 47 15 41 C 15 35 24 34 32 38 Z" fill="currentColor" opacity=".75"/>
+  <path d="M32 40 C 40 49 49 47 49 41 C 49 35 40 34 32 38 Z" fill="currentColor" opacity=".75"/>
+  <ellipse cx="32" cy="36" rx="3" ry="9" fill="#6B4F3F"/>
+  <path d="M30 28 C 28 24 26 22 24 21 M34 28 C 36 24 38 22 40 21" stroke="#6B4F3F" stroke-width="2" fill="none" stroke-linecap="round"/>
+</symbol>
+<symbol id="star-shape" viewBox="0 0 24 24">
+  <path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5-5.9-3.3-5.9 3.3 1.3-6.5-4.9-4.6 6.6-.8z"/>
+</symbol>
+<linearGradient id="halfStar" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="50%" stop-color="#F2C94C"/><stop offset="50%" stop-color="rgba(255,255,255,.35)"/>
+</linearGradient>
+</defs>
+</svg>
+
+<header id="header">
+  <div class="container h-inner">
+    <a class="brand" href="#top" data-scroll aria-label="СпичКи — на главную">
+      <svg><use href="#logo-shape"/></svg>
+      <span class="brand-name">Спич<b>Ки</b></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#services" data-scroll>Направления</a></li>
+        <li><a href="#formats" data-scroll>Форматы</a></li>
+        <li><a href="#prices" data-scroll>Цены</a></li>
+        <li><a href="#about" data-scroll>О студии</a></li>
+        <li><a href="#reviews" data-scroll>Отзывы</a></li>
+        <li><a href="#contacts" data-scroll>Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="h-phone" href="tel:+79236757265">📞 +7 (923) 675-72-65</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Омск • ул. Звездова, 103</span>
+      <div class="logo-row">
+        <svg aria-hidden="true"><use href="#logo-shape"/></svg>
+        <h1 class="wordmark">Спич<b>Ки</b></h1>
+      </div>
+      <span class="hero-pill">Студия развития речи и творчества</span>
+      <p class="lead">Пространство, где детям и взрослым можно с комфортом <b>расти, учиться, задавать вопросы, пробовать новое</b> и чувствовать поддержку рядом. Логопед, дефектолог и психолог — команда, которая зажигает речь и любовь к знаниям 🔥</p>
+      <div class="btns">
+        <a class="btn btn-red" href="#contacts" data-scroll>Записаться на занятие</a>
+        <a class="btn btn-ghost" href="#services" data-scroll>Наши направления</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>4.6 ★</b><span>рейтинг на 2ГИС</span></div>
+        <div class="stat"><b>8</b><span>направлений занятий</span></div>
+        <div class="stat"><b>с 1,5 лет</b><span>запуск речи и раннее развитие</span></div>
+        <div class="stat"><b>09–19</b><span>ежедневно, по записи</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="art-blob"></div>
+      <svg class="bf bf-1"><use href="#bf-shape"/></svg>
+      <svg class="bf bf-2"><use href="#bf-shape"/></svg>
+      <svg class="bf bf-3"><use href="#bf-shape"/></svg>
+      <svg class="girl" viewBox="0 0 320 420" role="img" aria-label="Девочка с бабочкой на ладонях">
+        <ellipse cx="160" cy="396" rx="122" ry="20" fill="#B4CF9E" opacity=".85"/>
+        <ellipse cx="105" cy="392" rx="40" ry="12" fill="#9DBE87" opacity=".8"/>
+        <g stroke="#7FA96B" stroke-width="3" stroke-linecap="round">
+          <line x1="70" y1="392" x2="66" y2="372"/><line x1="238" y1="392" x2="244" y2="370"/><line x1="210" y1="394" x2="212" y2="376"/>
+        </g>
+        <circle cx="66" cy="368" r="7" fill="#E88FA0"/><circle cx="244" cy="366" r="6" fill="#F2C94C"/><circle cx="212" cy="372" r="5" fill="#F0B9C6"/>
+        <rect x="138" y="292" width="15" height="92" rx="7.5" fill="#F3D3BC"/>
+        <rect x="167" y="292" width="15" height="92" rx="7.5" fill="#F3D3BC"/>
+        <ellipse cx="144" cy="386" rx="13" ry="7" fill="#F3D3BC"/><ellipse cx="176" cy="386" rx="13" ry="7" fill="#F3D3BC"/>
+        <path d="M160 148 C 132 148 124 168 120 198 L 109 288 C 108 299 116 305 126 305 L 194 305 C 204 305 212 299 211 288 L 200 198 C 196 168 188 148 160 148 Z" fill="#F0B9C6"/>
+        <path d="M112 282 C 140 292 180 292 208 282 L 211 288 C 212 299 204 305 194 305 L 126 305 C 116 305 108 299 109 288 Z" fill="#E8A5B6"/>
+        <path d="M136 166 C 128 190 138 208 152 214" stroke="#F3D3BC" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <path d="M184 166 C 192 190 182 208 168 214" stroke="#F3D3BC" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <circle cx="152" cy="215" r="8.5" fill="#F3D3BC"/><circle cx="168" cy="215" r="8.5" fill="#F3D3BC"/>
+        <g>
+          <path d="M160 196 C 147 178 132 182 136 194 C 139 203 150 204 160 198 Z" fill="#7FB6E5"/>
+          <path d="M160 196 C 173 178 188 182 184 194 C 181 203 170 204 160 198 Z" fill="#7FB6E5"/>
+          <path d="M160 200 C 152 208 144 206 144 200 C 144 195 152 194 160 198 Z" fill="#5B8AC5"/>
+          <path d="M160 200 C 168 208 176 206 176 200 C 176 195 168 194 160 198 Z" fill="#5B8AC5"/>
+          <ellipse cx="160" cy="197" rx="3" ry="8" fill="#4A6FA5"/>
+          <path d="M158 190 C 156 186 154 184 152 183 M162 190 C 164 186 166 184 168 183" stroke="#4A6FA5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </g>
+        <circle cx="108" cy="120" r="21" fill="#8A6248"/><circle cx="212" cy="120" r="21" fill="#8A6248"/>
+        <circle cx="121" cy="110" r="6" fill="#E88FA0"/><circle cx="199" cy="110" r="6" fill="#E88FA0"/>
+        <circle cx="160" cy="98" r="46" fill="#8A6248"/>
+        <circle cx="160" cy="110" r="38" fill="#F6D9C4"/>
+        <path d="M124 96 Q 160 62 196 96 Q 178 82 160 84 Q 142 82 124 96 Z" fill="#8A6248"/>
+        <path d="M142 112 Q 148 119 154 112" stroke="#6B4F3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M166 112 Q 172 119 178 112" stroke="#6B4F3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M154 128 Q 160 134 166 128" stroke="#C97C6D" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="136" cy="122" r="6.5" fill="#F2A9A0" opacity=".6"/><circle cx="184" cy="122" r="6.5" fill="#F2A9A0" opacity=".6"/>
+      </svg>
+      <svg class="snail" viewBox="0 0 220 150" role="img" aria-label="Улитка">
+        <ellipse cx="110" cy="132" rx="92" ry="13" fill="#B4CF9E" opacity=".85"/>
+        <ellipse cx="100" cy="124" rx="72" ry="11" fill="#EFD9B8"/>
+        <path d="M40 124 C 55 112 75 116 95 118 C 120 120 140 118 150 110 C 158 104 160 96 156 88 L 148 92 C 130 102 80 102 60 110 C 50 114 44 118 40 124 Z" fill="#EFD9B8"/>
+        <circle cx="152" cy="92" r="13" fill="#EFD9B8"/>
+        <line x1="147" y1="81" x2="140" y2="62" stroke="#DCA96F" stroke-width="4" stroke-linecap="round"/>
+        <line x1="158" y1="81" x2="164" y2="62" stroke="#DCA96F" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="139" cy="59" r="5" fill="#DCA96F"/><circle cx="165" cy="59" r="5" fill="#DCA96F"/>
+        <circle cx="155" cy="90" r="2.2" fill="#4A3A2F"/>
+        <path d="M156 97 Q 160 100 163 97" stroke="#C97C6D" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="95" cy="84" r="40" fill="#DCA96F"/>
+        <path d="M95 84 a5 5 0 0 1 5 5 a10 10 0 0 1 -10 10 a16 16 0 0 1 -16 -16 a23 23 0 0 1 23 -23 a30 30 0 0 1 30 30" fill="none" stroke="#B9834E" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track" id="mqTrack">
+    <span>Логопед<i>✦</i>Дефектолог<i>✦</i>Психолог<i>✦</i>Раннее развитие<i>✦</i>Подготовка к школе<i>✦</i>Иностранный язык<i>✦</i>Чтение и письмо<i>✦</i>Репетитор<i>✦</i></span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="h-head reveal">
+      <span class="over">Направления</span>
+      <h2>Чем мы занимаемся</h2>
+      <p>У нас вы можете выбрать для себя и ребёнка любое направление — от запуска речи до подготовки к школе и иностранных языков</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal"><span class="pill c-peach">Логопед</span><p>Постановка и коррекция звуков, развитие речи, профилактика дислексии и дисграфии. Индивидуальные занятия с дошкольниками и школьниками.</p><span class="num">01</span></div>
+      <div class="srv-card reveal"><span class="pill c-red">Дефектолог</span><p>Коррекционная работа с детьми с ОВЗ: помогаем заговорить, научиться, адаптироваться. Развитие памяти, внимания и мышления.</p><span class="num">02</span></div>
+      <div class="srv-card reveal"><span class="pill c-mint">Психолог</span><p>Поддержка специального (коррекционного) психолога для детей и родителей: тревожность, адаптация, поведение, сенсорная интеграция.</p><span class="num">03</span></div>
+      <div class="srv-card reveal"><span class="pill c-green">Раннее развитие</span><p>Запуск речи с 1,5 лет, развитие мелкой моторики и сенсорного восприятия через игру и творчество.</p><span class="num">04</span></div>
+      <div class="srv-card reveal"><span class="pill c-peach">Подготовка к школе</span><p>Чтение, счёт, основы письма, развитие внимания и волевых качеств — мягко и без страха перед школой.</p><span class="num">05</span></div>
+      <div class="srv-card reveal"><span class="pill c-red">Иностранный язык</span><p>Английский в игровом формате для детей и подростков: речевая практика, игры, живое общение.</p><span class="num">06</span></div>
+      <div class="srv-card reveal"><span class="pill c-mint">Чтение и письмо</span><p>Техника чтения, каллиграфия и исправление почерка, коррекция дислексии и дисграфии.</p><span class="num">07</span></div>
+      <div class="srv-card reveal"><span class="pill c-green">Репетитор</span><p>Индивидуальное сопровождение школьника, помощь с домашними заданиями и закрытие пробелов.</p><span class="num">08</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="container">
+    <div class="h-head reveal">
+      <span class="over" style="background:var(--mint)">Форматы</span>
+      <h2>Как проходят занятия</h2>
+    </div>
+    <div class="formats-grid">
+      <div class="boy-wrap reveal">
+        <svg class="boy" viewBox="0 0 340 420" role="img" aria-label="Мальчик с сачком ловит бабочек">
+          <ellipse cx="170" cy="400" rx="132" ry="19" fill="#B4CF9E" opacity=".85"/>
+          <ellipse cx="120" cy="396" rx="46" ry="12" fill="#9DBE87" opacity=".8"/>
+          <line x1="158" y1="255" x2="150" y2="345" stroke="#7FA8C9" stroke-width="19" stroke-linecap="round"/>
+          <line x1="184" y1="255" x2="196" y2="340" stroke="#7FA8C9" stroke-width="19" stroke-linecap="round"/>
+          <rect x="140" y="330" width="22" height="13" rx="6" fill="#A9C6DE"/><rect x="186" y="326" width="22" height="13" rx="6" fill="#A9C6DE"/>
+          <ellipse cx="148" cy="352" rx="13" ry="7" fill="#F3D3BC"/><ellipse cx="198" cy="348" rx="13" ry="7" fill="#F3D3BC"/>
+          <path d="M170 148 C 145 148 138 164 136 184 L 131 252 L 209 252 L 204 184 C 202 164 195 148 170 148 Z" fill="#A9C6DE"/>
+          <path d="M198 164 C 220 140 235 120 248 100" stroke="#F3D3BC" stroke-width="12" stroke-linecap="round" fill="none"/>
+          <circle cx="250" cy="98" r="7.5" fill="#F3D3BC"/>
+          <path d="M142 168 C 128 190 122 205 118 220" stroke="#F3D3BC" stroke-width="12" stroke-linecap="round" fill="none"/>
+          <circle cx="117" cy="222" r="7.5" fill="#F3D3BC"/>
+          <line x1="252" y1="96" x2="286" y2="54" stroke="#B9834E" stroke-width="5" stroke-linecap="round"/>
+          <path d="M278 52 Q 282 86 302 82 Q 320 78 317 48 Z" fill="#FFFFFF" opacity=".92" stroke="#D9D2C0" stroke-width="2"/>
+          <ellipse cx="298" cy="42" rx="26" ry="13" fill="none" stroke="#B9834E" stroke-width="4.5" transform="rotate(-38 298 42)"/>
+          <circle cx="170" cy="104" r="38" fill="#F6D9C4"/>
+          <path d="M134 96 C 132 62 160 50 170 50 C 182 50 208 60 206 96 C 200 82 196 78 192 86 C 188 74 182 72 178 82 C 172 70 164 70 160 82 C 154 72 148 76 146 86 C 142 78 138 84 134 96 Z" fill="#8A6248"/>
+          <circle cx="158" cy="104" r="3.6" fill="#4A3A2F"/><circle cx="182" cy="104" r="3.6" fill="#4A3A2F"/>
+          <path d="M162 120 Q 170 127 178 120" stroke="#C97C6D" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="146" cy="114" r="6" fill="#F2A9A0" opacity=".55"/><circle cx="194" cy="114" r="6" fill="#F2A9A0" opacity=".55"/>
+          <g transform="translate(46,52) scale(.8)" color="#D96A6A"><use href="#bf-shape" width="64" height="64"/></g>
+          <g transform="translate(268,168) scale(.7)" color="#F2C94C"><use href="#bf-shape" width="64" height="64"/></g>
+          <g transform="translate(292,20) scale(.55)" color="#9DBE87"><use href="#bf-shape" width="64" height="64"/></g>
+        </svg>
+      </div>
+      <div class="fmt-list">
+        <div class="fmt-row reveal"><span class="pill c-peach">Индивидуальные занятия</span><p>Персональный план и темп под особенности ребёнка, максимум внимания специалиста и бережная обратная связь родителям.</p></div>
+        <div class="fmt-row reveal"><span class="pill c-red">Групповые занятия</span><p>Мини-группы, где дети учатся взаимодействовать, общаться, работать в команде и чувствовать себя частью коллектива.</p></div>
+        <div class="fmt-row reveal"><span class="pill c-mint">Творческие мастер-классы</span><p>Арт-терапия и творчество: самовыражение через краски, поделки и сказку — для детей и взрослых.</p></div>
+        <div class="fmt-row reveal"><span class="pill c-green">Праздники</span><p>Новогодние и тематические праздники для малышей в тёплой и уютной атмосфере студии.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="container">
+    <div class="h-head reveal">
+      <span class="over" style="background:var(--green)">Цены</span>
+      <h2>Стоимость занятий</h2>
+      <p>Доступные цены на все направления — от диагностики до творческих мастер-классов</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal"><span class="tag">Логопед • Дефектолог • Психолог</span><h3>Диагностика развития ребёнка</h3><div class="sum">от 1 800 ₽</div></div>
+      <div class="price-card reveal"><span class="tag">Индивидуально</span><h3>Занятия с логопедом / дефектологом</h3><div class="sum">850 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Индивидуально • с 1,5 лет</span><h3>Запуск речи</h3><div class="sum">от 850 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Психолог</span><h3>Сенсорная интеграция</h3><div class="sum">1 500 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Творчество • дети и взрослые</span><h3>Арт-терапия</h3><div class="sum">500 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Чтение и письмо</span><h3>Каллиграфия и исправление почерка</h3><div class="sum">800 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Иностранный язык</span><h3>Английский язык</h3><div class="sum">750 ₽ <small>/ занятие</small></div></div>
+      <div class="price-card reveal"><span class="tag">Группа / индивидуально</span><h3>Подготовка к школе</h3><div class="sum">700 ₽ <small>/ занятие</small></div></div>
+    </div>
+    <p class="price-note reveal">Цены носят информационный характер и не являются публичной офертой. Актуальную стоимость уточняйте по телефону <a href="tel:+79236757265" style="color:var(--red);font-weight:800">+7 (923) 675-72-65</a></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-art reveal">
+      <div class="craft">
+        <svg viewBox="0 0 320 240" role="img" aria-label="Краски, кисти и детский рисунок">
+          <g transform="rotate(-4 110 120)">
+            <rect x="40" y="58" width="140" height="122" rx="10" fill="#FDFBF4" stroke="#E8E0D0" stroke-width="2"/>
+            <circle cx="86" cy="98" r="16" fill="none" stroke="#F2C94C" stroke-width="4"/>
+            <g stroke="#F2C94C" stroke-width="3.5" stroke-linecap="round">
+              <line x1="86" y1="72" x2="86" y2="64"/><line x1="86" y1="124" x2="86" y2="130"/>
+              <line x1="60" y1="98" x2="52" y2="98"/><line x1="112" y1="98" x2="120" y2="98"/>
+              <line x1="68" y1="80" x2="62" y2="74"/><line x1="104" y1="80" x2="110" y2="74"/>
+            </g>
+            <path d="M60 158 C 80 146 100 162 120 150 C 136 141 150 152 162 148" fill="none" stroke="#7FB6E5" stroke-width="4" stroke-linecap="round"/>
+            <path d="M132 120 C 124 110 112 112 114 122 C 116 130 126 130 132 124 Z" fill="#E88FA0"/>
+            <path d="M132 120 C 140 110 152 112 150 122 C 148 130 138 130 132 124 Z" fill="#E88FA0"/>
+          </g>
+          <ellipse cx="238" cy="160" rx="58" ry="40" fill="#EFD9B8"/>
+          <circle cx="222" cy="162" r="9" fill="#FDFBF4"/>
+          <circle cx="216" cy="138" r="7.5" fill="#C6555C"/><circle cx="242" cy="132" r="7.5" fill="#E4A87C"/>
+          <circle cx="264" cy="148" r="7.5" fill="#A7C4C0"/><circle cx="258" cy="174" r="7.5" fill="#B4CF9E"/>
+          <circle cx="234" cy="182" r="7.5" fill="#F0B9C6"/>
+          <rect x="252" y="52" width="44" height="52" rx="10" fill="#A7C4C0" opacity=".55"/>
+          <line x1="264" y1="58" x2="256" y2="26" stroke="#B9834E" stroke-width="5" stroke-linecap="round"/>
+          <line x1="282" y1="58" x2="288" y2="24" stroke="#B9834E" stroke-width="5" stroke-linecap="round"/>
+          <ellipse cx="255" cy="22" rx="5" ry="8" fill="#C6555C" transform="rotate(-14 255 22)"/>
+          <ellipse cx="289" cy="20" rx="5" ry="8" fill="#7FB6E5" transform="rotate(12 289 20)"/>
+          <g transform="rotate(14 90 210)">
+            <rect x="52" y="204" width="76" height="9" rx="4.5" fill="#E4A87C"/><path d="M128 204 l14 4.5 l-14 4.5 z" fill="#8A6248"/>
+          </g>
+          <g transform="rotate(6 110 226)">
+            <rect x="70" y="220" width="76" height="9" rx="4.5" fill="#B4CF9E"/><path d="M146 220 l14 4.5 l-14 4.5 z" fill="#8A6248"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="reveal">
+      <span style="background:var(--red);color:#fff;display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:7px 18px;border-radius:999px;margin-bottom:14px">О студии</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);font-weight:900;color:var(--red)">«СпичКи» — место, где зажигается речь</h2>
+      <div class="quote">«Приглашаем в пространство, где детям и взрослым можно с комфортом расти, учиться, задавать вопросы, пробовать новое и чувствовать поддержку рядом» — <b>команда студии «СпичКи»</b></div>
+      <ul class="checks">
+        <li>Команда специалистов: логопед, дефектолог и специальный (коррекционный) психолог</li>
+        <li>Помощь детям с ОВЗ: заговорить, научиться, адаптироваться</li>
+        <li>Диагностика и коррекция речевых нарушений (звуки, ЗРР) и письма (дислексия, дисграфия)</li>
+        <li>Индивидуальные и групповые занятия, творческие мастер-классы и праздники</li>
+        <li>Уютная студия в Центральном округе, приём ежедневно по предварительной записи</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="h-head reveal">
+      <span class="over" style="background:var(--peach)">Отзывы</span>
+      <h2>Нам доверяют самое дорогое</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rating-card reveal">
+        <div class="score">4.6</div>
+        <div class="stars" aria-label="Рейтинг 4.6 из 5">
+          <svg fill="#F2C94C"><use href="#star-shape"/></svg>
+          <svg fill="#F2C94C"><use href="#star-shape"/></svg>
+          <svg fill="#F2C94C"><use href="#star-shape"/></svg>
+          <svg fill="#F2C94C"><use href="#star-shape"/></svg>
+          <svg fill="url(#halfStar)"><use href="#star-shape"/></svg>
+        </div>
+        <p>рейтинг студии по оценке родителей<br>на 2ГИС и Flamp</p>
+        <a class="btn" href="https://2gis.ru/omsk/firm/70000001099681366" target="_blank" rel="noopener">Читать отзывы на 2ГИС</a>
+      </div>
+      <div class="val-cards">
+        <div class="val-card reveal"><div class="val-ico c-peach">🤝</div><div><h3>Специалист + родитель = команда</h3><p>Лучшие результаты достигаются, когда специалист и родители работают вместе: вы всегда получаете обратную связь и домашние рекомендации.</p></div></div>
+        <div class="val-card reveal"><div class="val-ico c-red">❤️</div><div><h3>Поддержка и бережность</h3><p>Пространство, где ребёнку не страшно пробовать и ошибаться: тёплая атмосфера, игры и творчество вместо скуки и давления.</p></div></div>
+        <div class="val-card reveal"><div class="val-ico c-green">🌱</div><div><h3>Видимый результат</h3><p>Заговорившие малыши, исправленные звуки, красивый почерк и уверенная подготовка к школе — то, за что родители ставят студии высшие оценки.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="h-head reveal">
+      <span class="over" style="background:var(--mint)">Контакты</span>
+      <h2>Записывайтесь на занятие</h2>
+      <p>Работаем ежедневно с 09:00 до 19:00 по предварительной записи</p>
+    </div>
+    <div class="contact-grid">
+      <div class="c-list">
+        <a class="c-item reveal" href="https://2gis.ru/omsk/firm/70000001099681366" target="_blank" rel="noopener">
+          <div class="c-ico c-red"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><b>Омск, ул. Звездова, 103</b><span>1 этаж • вход со двора • вход со Школьного бульвара • Центральный округ, 644070</span></div>
+        </a>
+        <a class="c-item reveal" href="tel:+79236757265">
+          <div class="c-ico c-peach"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <div><b>+7 (923) 675-72-65</b><span>звонок и запись на занятия</span></div>
+        </a>
+        <div class="c-item reveal">
+          <div class="c-ico c-mint"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div><b>Пн–Вс: 09:00 — 19:00</b><span>по предварительной записи</span></div>
+        </div>
+        <a class="c-item reveal" href="https://vk.com/speech_ku" target="_blank" rel="noopener">
+          <div class="c-ico c-green"><svg viewBox="0 0 24 24"><path d="M4 12c0 5 3.5 8 8 8h1v-3.2c1.7.2 3 1.2 3.6 3.2H20c-.5-2.4-2-3.8-3.6-4.4 1.6-.7 3.1-2.3 3.6-4.6h-2.6c-.6 2.2-2.2 3.4-3.4 3.5V11h-2.4v4.6C9.7 15.2 6.6 13 6.5 8h-3c.1 6 4 10.4 9.5 10.6"/></svg></div>
+          <div><b>ВКонтакте: «СпичКи»</b><span>vk.com/speech_ku — новости, видео и запись в личные сообщения</span></div>
+        </a>
+      </div>
+      <form class="form-card reveal" id="leadForm" novalidate>
+        <h3>Оставить заявку</h3>
+        <p>Оставьте контакты — мы перезвоним, расскажем о направлениях и подберём удобное время занятия.</p>
+        <div class="f-group"><label for="fName">Имя родителя</label><input id="fName" type="text" placeholder="Например, Мария" required></div>
+        <div class="f-group"><label for="fPhone">Телефон</label><input id="fPhone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+        <div class="f-group"><label for="fDir">Направление</label>
+          <select id="fDir">
+            <option>Логопед</option><option>Дефектолог</option><option>Психолог</option>
+            <option>Раннее развитие / запуск речи</option><option>Подготовка к школе</option>
+            <option>Иностранный язык (английский)</option><option>Чтение и письмо / каллиграфия</option>
+            <option>Репетитор</option><option>Арт-терапия / мастер-класс</option>
+            <option>Пока не знаю, нужна консультация</option>
+          </select>
+        </div>
+        <div class="f-group"><label for="fMsg">Комментарий</label><textarea id="fMsg" placeholder="Возраст ребёнка, вопросы или пожелания…"></textarea></div>
+        <button class="btn btn-red" type="submit" style="width:100%;justify-content:center">Отправить заявку ✉️</button>
+        <div class="form-ok" id="formOk">Спасибо! Заявка принята — мы свяжемся с вами в ближайшее время 💌</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">
+          <svg><use href="#logo-shape"/></svg>
+          <span class="brand-name">Спич<b>Ки</b></span>
+        </div>
+        <p>Студия развития речи и творчества в Омске. Логопед, дефектолог, психолог, раннее развитие, подготовка к школе и многое другое.</p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <ul>
+          <li><a href="#services" data-scroll>Направления</a></li>
+          <li><a href="#formats" data-scroll>Форматы занятий</a></li>
+          <li><a href="#prices" data-scroll>Цены</a></li>
+          <li><a href="#about" data-scroll>О студии</a></li>
+          <li><a href="#contacts" data-scroll>Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79236757265">+7 (923) 675-72-65</a></li>
+          <li><a href="https://2gis.ru/omsk/firm/70000001099681366" target="_blank" rel="noopener">Омск, ул. Звездова, 103</a></li>
+          <li><a href="https://vk.com/speech_ku" target="_blank" rel="noopener">ВКонтакте</a></li>
+          <li><a href="https://omsk.flamp.ru/firm/spichki_studiya_razvitiya_rechi_i_tvorchestva-70000001099681366" target="_blank" rel="noopener">Отзывы на Flamp</a></li>
+          <li><a href="https://zoon.ru/omsk/kids/studiya_razvitiya_rechi_i_tvorchestva_spichki_na_ulitse_zvezdova/" target="_blank" rel="noopener">Прайс на Zoon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year"></span> Студия развития речи и творчества «СпичКи», Омск</span>
+      <span>Сделано с ❤️ для детей и родителей</span>
+    </div>
+  </div>
+  <svg class="f-snail" viewBox="0 0 220 150" aria-hidden="true">
+    <ellipse cx="100" cy="124" rx="72" ry="11" fill="#EFD9B8"/>
+    <circle cx="152" cy="92" r="13" fill="#EFD9B8"/>
+    <line x1="147" y1="81" x2="140" y2="62" stroke="#EFD9B8" stroke-width="4" stroke-linecap="round"/>
+    <line x1="158" y1="81" x2="164" y2="62" stroke="#EFD9B8" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="139" cy="59" r="5" fill="#EFD9B8"/><circle cx="165" cy="59" r="5" fill="#EFD9B8"/>
+    <circle cx="95" cy="84" r="40" fill="#E4A87C"/>
+    <path d="M95 84 a5 5 0 0 1 5 5 a10 10 0 0 1 -10 10 a16 16 0 0 1 -16 -16 a23 23 0 0 1 23 -23 a30 30 0 0 1 30 30" fill="none" stroke="#C6555C" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('header');
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+
+  // тень шапки при скролле
+  addEventListener('scroll', function(){ header.classList.toggle('scrolled', scrollY > 10); }, {passive:true});
+
+  // бургер-меню
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  // ПРИНУДИТЕЛЬНАЯ плавная прокрутка по якорям (работает везде, даже без CSS scroll-behavior)
+  function scrollToTarget(hash){
+    var target = document.querySelector(hash);
+    if(!target) return;
+    var headerH = header.offsetHeight || 70;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+    if(hash === '#top') top = 0;
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+    if(history.pushState) history.pushState(null, '', hash);
+  }
+  document.querySelectorAll('a[data-scroll]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var hash = link.getAttribute('href');
+      if(hash && hash.charAt(0) === '#' && hash.length > 1){
+        e.preventDefault();
+        burger.classList.remove('open');
+        nav.classList.remove('open');
+        scrollToTarget(hash);
+      }
+    });
+  });
+  // клик по логотипу (#top) — на самый верх
+  document.querySelectorAll('a[href="#top"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      burger.classList.remove('open');
+      nav.classList.remove('open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // бегущая строка: дублируем контент для бесшовности
+  var track = document.getElementById('mqTrack');
+  track.innerHTML += track.innerHTML;
+
+  // появление блоков при скролле
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // форма заявки
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('fName'), phone = document.getElementById('fPhone');
+    if(!name.value.trim() || !phone.value.trim()){
+      [name, phone].forEach(function(i){ if(!i.value.trim()){ i.style.borderColor = '#C6555C'; setTimeout(function(){ i.style.borderColor = ''; }, 1600); } });
+      return;
+    }
+    document.getElementById('formOk').classList.add('show');
+    e.target.reset();
+    setTimeout(function(){ document.getElementById('formOk').classList.remove('show'); }, 6000);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
