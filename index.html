@@ -665,7 +665,7 @@ footer ul a:hover{opacity:1;color:var(--peach);padding-left:6px}
       'Комментарий': msg.value.trim() || '—',
       'Страница': location.href,
       'Время': new Date().toLocaleString('ru-RU'),
-      '_subject': '🔥 Новая заявка с сайта speechki55.ru',
+      '_subject': '🔥 Заявка от ' + name.value.trim() + ' | ' + phone.value.trim() + ' | ' + new Date().toLocaleString('ru-RU'),
       '_template': 'table',
       '_honey': honeypot.value
     };
